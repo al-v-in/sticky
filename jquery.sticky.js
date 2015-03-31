@@ -14,6 +14,8 @@
   var defaults = {
       topSpacing: 0,
       bottomSpacing: 0,
+      stayAbove: null,
+      stayAbovePlus: 0,
       className: 'is-sticky',
       wrapperClassName: 'sticky-wrapper',
       center: false,
@@ -46,6 +48,10 @@
           }
         }
         else {
+          var bottomSpacing = s.bottomSpacing;
+          if(s.stayAbove && $(s.stayAbove).length ) {
+              bottomSpacing = $(document).height() - $(s.stayAbove).offset().top + s.stayAbovePlus;
+          }
           var newTop = documentHeight - s.stickyElement.outerHeight()
             - s.topSpacing - s.bottomSpacing - scrollTop - extra;
           if (newTop < 0) {
@@ -105,6 +111,8 @@
           sticked.push({
             topSpacing: o.topSpacing,
             bottomSpacing: o.bottomSpacing,
+            stayAbove: o.stayAbove,
+            stayAbovePlus: o.stayAbovePlus,
             stickyElement: stickyElement,
             currentTop: null,
             stickyWrapper: stickyWrapper,
