@@ -53,7 +53,7 @@
               bottomSpacing = $(document).height() - $(s.stayAbove).offset().top + s.stayAbovePlus;
           }
           var newTop = documentHeight - s.stickyElement.outerHeight()
-            - s.topSpacing - s.bottomSpacing - scrollTop - extra;
+            - s.topSpacing - bottomSpacing - scrollTop - extra;
           if (newTop < 0) {
             newTop = newTop + s.topSpacing;
           } else {
