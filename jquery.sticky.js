@@ -80,6 +80,7 @@
 
       for (var i = 0; i < sticked.length; i++) {
         var s = sticked[i];
+        s.stickyWrapper.css('height', s.stickyElement.outerHeight());
         if (typeof s.getWidthFrom !== 'undefined' && s.responsiveWidth === true) {
           s.stickyElement.css('width', $(s.getWidthFrom).width());
         }
